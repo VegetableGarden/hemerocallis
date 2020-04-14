@@ -1,0 +1,39 @@
+{
+	"manifest_version": 2,
+	"name": "convert easily",
+	"version": "0.0.1",
+	"description": "Easy to convert your text",
+	"icons":
+	{
+		"16": "img/hemerocallis.png",
+		"48": "img/hemerocallis.png",
+		"128": "img/hemerocallis.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+	},
+	"page_action":
+	{
+		"default_icon": "img/hemerocallis.png",
+		"default_title": "Easy to convert your text",
+		"default_popup": "popup.html"
+	},
+	"content_scripts":
+	[
+		{
+			"matches": ["<all_urls>"],
+			"js": ["lib/jquery.js", "lib/pako.js", "js/global.js", "js/content-scripts.js"],
+			"css": ["css/content-css.css"],
+			"run_at": "document_start"
+		}
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"permissions":
+	[
+		"contextMenus",
+		"storage",
+		"declarativeContent",
+		"tabs"
+	]
+}
